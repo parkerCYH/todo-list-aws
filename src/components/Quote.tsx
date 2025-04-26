@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { cn } from "@/utils/cn";
 
 interface QuoteProps {
@@ -13,34 +14,37 @@ const END_QUOTE = "\u201D";
 const Quote = ({ text }: QuoteProps) => {
   const quoteRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const letters = quoteRef.current?.querySelectorAll(".letter");
-    if (letters) {
-      gsap.fromTo(
-        letters,
-        {
-          x: 80,
-          y: 50,
-          z: -300,
-          rotateX: -90,
-          rotate: -35,
-          scaleY: 0.01,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          z: 0,
-          rotateX: 0,
-          rotate: 0,
-          scaleY: 1,
-          stagger: {
-            each: 0.03,
+  useGSAP(
+    () => {
+      const letters = quoteRef.current?.querySelectorAll(".letter");
+      if (letters) {
+        gsap.fromTo(
+          letters,
+          {
+            x: 80,
+            y: 50,
+            z: -300,
+            rotateX: -90,
+            rotate: -35,
+            scaleY: 0.01,
           },
-        }
-      );
-    }
-  }, [text]);
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            z: 0,
+            rotateX: 0,
+            rotate: 0,
+            scaleY: 1,
+            stagger: {
+              each: 0.03,
+            },
+          }
+        );
+      }
+    },
+    { scope: quoteRef }
+  );
   const chars = [START_QUOTE, ...text.split(""), END_QUOTE];
   return (
     <div

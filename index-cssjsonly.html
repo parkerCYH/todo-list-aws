@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Animation JS CSS only</title>
+    <link rel="stylesheet" href="https://use.typekit.net/pxc5lqp.css" />
+    <style>
+      body {
+        background: #000000;
+        opacity: 1;
+        font-family: "Poppins";
+      }
+
+      main {
+        background: transparent url("asset/g-pic.png") 0 0 no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        opacity: 1;
+      }
+
+      .cases-quote-text .start-quote {
+        left: -25px;
+        position: absolute;
+      }
+      .cases-quote-text {
+        position: relative;
+        font-size: 48px;
+        max-width: 720px;
+        color: white;
+        white-space: normal;
+      }
+
+      .fx-word {
+        display: inline-block;
+      }
+
+      .fx-letter {
+        display: inline-block;
+        transform: translate3d(80px, 50px, -300px) scaleY(0.01) rotateX(-90deg)
+          rotate(-35deg);
+        transform-origin: 0 100%;
+        transform-style: preserve-3d;
+        transition: all 1.2s cubic-bezier(0.245, 0.495, 0, 0.99);
+        opacity: 0;
+      }
+      .in-view .fx-letter {
+        transform: translate3d(0, 0, 0) scaleY(1) rotateX(0) rotate(0);
+        opacity: 1;
+      }
+
+      .start-quote,
+      .end-quote {
+        line-height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="cases-quote-text fx-parent" id="quote"></p>
+    </main>
+
+    <script>
+      const _delay = 0.03;
+      const target = document.getElementById("quote");
+      const text = "Team Taiwan! Team Taiwan! Taiwan is a great country!";
+      let letterCount = 1;
+
+      const startQuote = document.createElement("span");
+      startQuote.classList.add(
+        "fx-letter",
+        `fx-letter--${letterCount++}`,
+        "start-quote"
+      );
+      startQuote.textContent = "“";
+      target.appendChild(startQuote);
+
+      text.split(" ").forEach((word) => {
+        const wordSpan = document.createElement("span");
+        wordSpan.classList.add("fx-word");
+
+        [...word].forEach((char) => {
+          const letterSpan = document.createElement("span");
+          letterSpan.classList.add("fx-letter", `fx-letter--${letterCount}`);
+          letterSpan.textContent = char;
+
+          const delay = (letterCount - 1) * _delay;
+          letterSpan.style.transitionDelay = `${delay}s`;
+
+          wordSpan.appendChild(letterSpan);
+          letterCount++;
+        });
+
+        target.appendChild(wordSpan);
+        const space = document.createTextNode(" ");
+        target.appendChild(space);
+      });
+
+      const endQuote = document.createElement("span");
+      endQuote.classList.add(
+        "fx-letter",
+        `fx-letter--${letterCount}`,
+        "end-quote"
+      );
+      endQuote.style.transitionDelay = `${letterCount * _delay}s`;
+      endQuote.textContent = "”";
+      target.appendChild(endQuote);
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+
+      observer.observe(target);
+    </script>
+  </body>
+</html>

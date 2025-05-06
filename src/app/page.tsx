@@ -1,20 +1,31 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
-    title: "remix project",
-    description: "remix todo list 的實作範例，包含了多種功能。",
+    title: "Todo List",
+    description: "一個簡單的待辦事項列表應用程式。",
+    skills: ["remix", "typescript", "tailwindcss"],
     image: "/assets/images/server-side-todolist.png",
     demoUrl: "https://remix-todo-list-eustacechengs-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/remix-todo-list",
   },
   {
-    title: "gsap animation project",
-    description: "gsap 動畫的實作範例，包含了多種動畫效果。",
+    title: "Animation Gallery",
+    description: "一個展示各種動畫效果的畫廊。",
+    skills: ["gsap", "typescript", "tailwindcss"],
     image: "/assets/images/gsap.png",
     demoUrl: "https://gsap-title-demo-eustacechengs-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/gsap-title-demo",
+  },
+  {
+    title: "Blog",
+    description: "部落格網站",
+    skills: ["SanityCMS", "nextjs", "typescript"],
+    image: "/assets/images/gsap.png",
+    demoUrl: "https://sanity-next-blog-eustacecheng.vercel.app/",
+    githubUrl: "https://github.com/parkerCYH/sanity-next-blog",
   },
 ];
 
@@ -38,6 +49,13 @@ export default function Home() {
                 height={400}
                 className="rounded-lg object-cover"
               />
+            </div>
+            <div className="flex flex-wrap gap-2 my-2">
+              {project.skills.map((skill) => (
+                <Badge key={skill} variant="outline">
+                  {skill}
+                </Badge>
+              ))}
             </div>
             <div className="flex gap-3">
               <Button asChild variant="default">

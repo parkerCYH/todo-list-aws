@@ -1,4 +1,9 @@
+"use client";
+
+import { useScrollRegistry } from "@/hooks/useScrollRegistry";
+
 export default function Hero() {
+  const { scrollTo } = useScrollRegistry();
   return (
     <section className="bg-white h-screen flex items-center justify-center">
       <div className="text-center">
@@ -8,6 +13,10 @@ export default function Hero() {
         </p>
         <a
           href="#projects"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo("projects");
+          }}
           className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
         >
           View Projects

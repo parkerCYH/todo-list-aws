@@ -26,7 +26,7 @@ export const projects = [
     title: "News Website",
     description: "News, blog, and article website.",
     skills: ["SanityCMS", "nextjs", "typescript"],
-    image: "parker-daily-news.png",
+    image: "/assets/images/parker-daily-news.png",
     demoUrl: "https://sanity-next-blog-eustacecheng-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/sanity-next-blog",
   },

@@ -8,7 +8,7 @@ import { useScrollRegistry } from "@/hooks/useScrollRegistry";
 export const projects = [
   {
     title: "Todo List",
-    description: "一個簡單的待辦事項列表應用程式。",
+    description: "A simple todo list app.",
     skills: ["remix", "typescript", "tailwindcss"],
     image: "/assets/images/server-side-todolist.png",
     demoUrl: "https://remix-todo-list-eustacechengs-projects.vercel.app/",
@@ -16,18 +16,18 @@ export const projects = [
   },
   {
     title: "Animation Gallery",
-    description: "一個展示各種動畫效果的畫廊。",
+    description: "An animation gallery showcasing various animations.",
     skills: ["gsap", "typescript", "tailwindcss"],
     image: "/assets/images/gsap.png",
     demoUrl: "https://gsap-title-demo-eustacechengs-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/gsap-title-demo",
   },
   {
-    title: "Blog",
-    description: "部落格網站",
+    title: "News Website",
+    description: "News, blog, and article website.",
     skills: ["SanityCMS", "nextjs", "typescript"],
-    image: "/assets/images/gsap.png",
-    demoUrl: "https://sanity-next-blog-eustacecheng.vercel.app/",
+    image: "parker-daily-news.png",
+    demoUrl: "https://sanity-next-blog-eustacecheng-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/sanity-next-blog",
   },
 ];

@@ -9,7 +9,8 @@ export default function Hero() {
       <div className="text-center">
         <h1 className="text-5xl font-bold mb-4">Hello, I&apos;m Parker</h1>
         <p className="text-xl text-gray-700 mb-6">
-          A Software Engineer specializing in React and Python.
+          I create intuitive, user-centered digital experiences that solve real
+          problems.
         </p>
         <a
           href="#projects"
@@ -19,7 +20,7 @@ export default function Hero() {
           }}
           className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
         >
-          View Projects
+          Explore My Projects
         </a>
       </div>
     </section>

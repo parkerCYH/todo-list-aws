@@ -9,7 +9,7 @@ export const projects = [
   {
     title: "Todo List",
     description: "A simple todo list app.",
-    skills: ["remix", "typescript", "tailwindcss"],
+    skills: ["Remix", "Typescript", "TailwindCSS"],
     image: "/assets/images/server-side-todolist.png",
     demoUrl: "https://remix-todo-list-eustacechengs-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/remix-todo-list",
@@ -17,7 +17,7 @@ export const projects = [
   {
     title: "Animation Gallery",
     description: "An animation gallery showcasing various animations.",
-    skills: ["gsap", "typescript", "tailwindcss"],
+    skills: ["gsap", "Typescript", "TailwindCSS"],
     image: "/assets/images/gsap.png",
     demoUrl: "https://gsap-title-demo-eustacechengs-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/gsap-title-demo",
@@ -25,9 +25,9 @@ export const projects = [
   {
     title: "News Website",
     description: "News, blog, and article website.",
-    skills: ["SanityCMS", "nextjs", "typescript"],
+    skills: ["SanityCMS", "NextJS", "Typescript"],
     image: "/assets/images/parker-daily-news.png",
-    demoUrl: "https://sanity-next-blog-eustacecheng-projects.vercel.app/",
+    demoUrl: "https://sanity-next-blog-eustacechengs-projects.vercel.app/",
     githubUrl: "https://github.com/parkerCYH/sanity-next-blog",
   },
 ];

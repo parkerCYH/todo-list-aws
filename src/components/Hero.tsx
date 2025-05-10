@@ -1,6 +1,7 @@
 "use client";
 
 import { useScrollRegistry } from "@/hooks/useScrollRegistry";
+import { Button } from "./ui/button";
 
 export default function Hero() {
   const { scrollTo } = useScrollRegistry();
@@ -12,16 +13,17 @@ export default function Hero() {
           I create intuitive, user-centered digital experiences that solve real
           problems.
         </p>
-        <a
-          href="#projects"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTo("projects");
-          }}
-          className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
-        >
-          Explore My Projects
-        </a>
+        <Button asChild variant="default">
+          <a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo("projects");
+            }}
+          >
+            Explore My Projects
+          </a>
+        </Button>
       </div>
     </section>
   );

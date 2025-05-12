@@ -15,11 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>
-          <div className="flex items-center p-9 md:gap-16">
-            <span className="text-xl font-bold sm:text-3xl">Parker Map</span>
-            <NavigationMenuDemo />
-          </div>
+        <header className="flex items-center justify-between sm:justify-normal p-4 sm:p-9 sm:gap-16">
+          <span className="text-xl font-bold sm:text-3xl">Parker Map</span>
+          <NavigationMenuDemo />
         </header>
         {children}
       </body>

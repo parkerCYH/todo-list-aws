@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+
 import { createScrollStore } from "@/stores/scrollStore";
 
 const scrollStore = createScrollStore<string>();

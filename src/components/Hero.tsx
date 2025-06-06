@@ -1,6 +1,7 @@
 "use client";
 
 import { useScrollRegistry } from "@/hooks/useScrollRegistry";
+
 import { Button } from "./ui/button";
 
 export default function Hero() {

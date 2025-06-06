@@ -18,7 +18,7 @@ export default defineConfig([
             'simple-import-sort': pluginSimpleImportSort,
         },
         rules: {
-            'react-hooks/exhaustive-deps': 'off', // deps are not always needed
+            'react-hooks/exhaustive-deps': 'off',
             'simple-import-sort/imports': 'error',
             'simple-import-sort/exports': 'error',
         },

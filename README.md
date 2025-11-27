@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# parkerCYH-portfolio (Next.js + AWS)
 
-## Getting Started
+> 個人全端作品集網站，展示技能、專案與聯絡方式，採用 Next.js 16、TypeScript、Tailwind CSS、shadcn/ui 等現代技術開發。
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 特色 Features
+
+- **個人簡介與技能**：介紹開發者背景、專長技術與設計工具
+- **作品集展示**：卡片式呈現多個專案，附技術標籤與圖片
+- **聯絡表單**：支援即時留言，資料經 API 以 Resend 寄送 Email
+- **響應式設計**：桌機與行動裝置皆適用
+- **現代化 UI/UX**：shadcn/ui + Tailwind CSS 打造美觀介面
+
+## 🛠 技術棧 Tech Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- React Hook Form + Zod
+- Resend (Email API)
+- AWS (可擴充部署)
+
+## 📁 專案結構 Project Structure
+
+```text
+app/
+    _components/      # 各區塊元件 (Header, Hero, About, Skills, Projects, Contact)
+    api/contact/      # 聯絡表單 API (Resend Email)
+components/ui/      # 共用 UI 元件 (Button, Card, Input...)
+lib/                # 共用函式與環境變數設定
+public/             # 靜態資源
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ 快速開始 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 安裝依賴 Install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ```bash
+    pnpm install
+    # 或 npm install / yarn install
+    ```
 
-## Learn More
+2. 設定環境變數 Setup environment variables
+    - 複製 `.env.example` 為 `.env.local`，填入 `RESEND_API_KEY`
 
-To learn more about Next.js, take a look at the following resources:
+3. 啟動開發伺服器 Start dev server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    pnpm dev
+    # 或 npm run dev / yarn dev
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. 開啟 [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+## 📬 聯絡表單 Contact Form
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 表單資料送到 `/api/contact`，經 Resend API 寄送 Email
+- 需設定 `RESEND_API_KEY` 於環境變數
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ☁️ 部署 Deployment
+
+- 可部署於 Vercel、AWS、或任何支援 Node.js 的平台
+- 建議使用 Vercel 以獲得最佳 Next.js 支援
+
+## 👤 作者 Author
+
+- [鄭雲修](https://github.com/parkerCYH)
+
+GitHub Repo: [parkerCYH-portfolio](https://github.com/parkerCYH/parkerCYH-portfolio)
+
+- Email: fbi0258zzz@gmail.com
+
+---
+
+歡迎交流與合作！

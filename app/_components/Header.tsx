@@ -1,11 +1,43 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import type { Route } from 'next';
 
-const navItems: { id: string; label: string; path: Route }[] = [
+import type { Route } from 'next';
+import { useRouter } from 'next/navigation';
+
+type NavEntry = {
+    id: string;
+    label: string;
+    path?: Route;
+    description?: string;
+    children?: NavEntry[];
+};
+
+const navItems: NavEntry[] = [
     { id: 'home', label: '首頁', path: '/' },
     { id: 'about', label: '關於', path: '/about' },
-    { id: 'projects', label: '作品', path: '/projects' },
+    {
+        id: 'projects',
+        label: '作品',
+        children: [
+            {
+                id: 'showcase',
+                label: 'Showcase',
+                path: '/projects/showcase',
+                description: '展示各類作品與專案',
+            },
+            {
+                id: 'deep-dive',
+                label: 'Deep-Dive',
+                path: '/projects/deep-dive',
+                description: '深入技術專題與研究',
+            },
+            {
+                id: 'playground',
+                label: 'Playground',
+                path: '/projects/playground',
+                description: '互動實驗與小工具',
+            },
+        ],
+    },
     { id: 'contact', label: '聯絡', path: '/contact' },
 ];
 
@@ -27,7 +59,9 @@ export default function Header() {
                         {navItems.map((item) => (
                             <li key={item.id}>
                                 <button
-                                    onClick={() => router.push(item.path)}
+                                    onClick={() => {
+                                        if (item.path) router.push(item.path);
+                                    }}
                                     className="text-sm hover:text-gray-600 transition-colors cursor-pointer"
                                 >
                                     {item.label}

@@ -4,12 +4,10 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import { Mail } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function HeroSection() {
-    const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        element?.scrollIntoView({ behavior: 'smooth' });
-    };
+    const route = useRouter();
 
     return (
         <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20">
@@ -38,7 +36,7 @@ export default function HeroSection() {
                     <Button
                         size="lg"
                         className="font-medium"
-                        onClick={() => scrollToSection('contact')}
+                        onClick={() => route.push('/contact')}
                     >
                         聯絡我
                     </Button>
@@ -46,7 +44,7 @@ export default function HeroSection() {
                         size="lg"
                         variant="outline"
                         className="font-medium"
-                        onClick={() => scrollToSection('projects')}
+                        onClick={() => route.push('/projects')}
                     >
                         查看作品
                     </Button>
@@ -72,7 +70,7 @@ export default function HeroSection() {
                         <LinkedInLogoIcon className="w-6 h-6" />
                     </a>
                     <a
-                        href="mailto:hello@example.com"
+                        href="mailto:fbi0258zzz@gmail.com"
                         className="text-gray-600 hover:text-gray-900 transition-colors"
                         aria-label="Email"
                     >

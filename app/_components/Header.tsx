@@ -1,25 +1,23 @@
 'use client';
+import { useRouter } from 'next/navigation';
+import type { Route } from 'next';
 
-const navItems = [
-    { id: 'home', label: '首頁' },
-    { id: 'about', label: '關於' },
-    { id: 'skills', label: '技能' },
-    { id: 'projects', label: '作品' },
-    { id: 'contact', label: '聯絡' },
+const navItems: { id: string; label: string; path: Route }[] = [
+    { id: 'home', label: '首頁', path: '/' },
+    { id: 'about', label: '關於', path: '/about' },
+    { id: 'projects', label: '作品', path: '/projects' },
+    { id: 'contact', label: '聯絡', path: '/contact' },
 ];
 
 export default function Header() {
-    const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        element?.scrollIntoView({ behavior: 'smooth' });
-    };
+    const router = useRouter();
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b">
             <div className="container mx-auto px-4 py-4">
                 <nav className="flex items-center justify-between">
                     <button
-                        onClick={() => scrollToSection('home')}
+                        onClick={() => router.push('/')}
                         className="text-lg font-semibold  cursor-pointer"
                     >
                         Hi Parker
@@ -29,7 +27,7 @@ export default function Header() {
                         {navItems.map((item) => (
                             <li key={item.id}>
                                 <button
-                                    onClick={() => scrollToSection(item.id)}
+                                    onClick={() => router.push(item.path)}
                                     className="text-sm hover:text-gray-600 transition-colors cursor-pointer"
                                 >
                                     {item.label}
